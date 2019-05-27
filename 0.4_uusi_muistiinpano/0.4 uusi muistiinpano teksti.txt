@@ -1,0 +1,37 @@
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+palvelin-->selain: http/1.1 302 redirect location: /notes
+note over selain:
+Lomake lähetetään palvelimelle, 
+joka vastaa pyyntöön HTTP-statuskoodilla 302.
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin-->selain: HTML-koodi
+note over selain:
+selain lataa HTML tiedoston
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: main.css
+note over selain:
+HTML tiedoston head-osio sisältää tägin, 
+joka pyytää selainta lataamaan main.css tyylitiedoston
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: main.js
+note over selain:
+HTML tiedoston head-osio sisältää tägin, 
+joka pyytää selainta lataamaan main.js javascript tiedoston.
+joka pyytää selainta lataamaan data.json tiedoston.
+end note
+
+
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: [{[{"content":"HTML is easy","date":"2019-05}, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle
+end note
